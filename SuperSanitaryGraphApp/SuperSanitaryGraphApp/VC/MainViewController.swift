@@ -12,6 +12,10 @@ class MainViewController: UITableViewController {
     private var user : User!
     private var hideButtonsRow : Bool = true
     private let notificationCenter = NotificationCenter.default
+    private lazy var tapGestureRecognizer : UITapGestureRecognizer = {
+        return UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+    }()
+    
     @IBOutlet var nameTextfield : UITextField!
     
     
@@ -23,23 +27,38 @@ class MainViewController: UITableViewController {
         user = User(name:"Daniel")
         self.navigationItem.title = "Hola \(user!.name)"
         self.nameTextfield.delegate = self
-        notificationCenter.addObserver(self, selector: #selector(changeColor(sender:)), name: NSNotification.Name("screenColorChanged"), object: nil)
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        notificationCenter.addObserver(self, selector: #selector(changeColor(sender:)), name: NSNotification.Name("screenColorChanged"), object: nil)
+        notificationCenter.addObserver(self, selector: #selector(configureKeyboardInteraction), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(removeKeyboardGestureRecognizer), name: UIResponder.keyboardDidHideNotification, object: nil)
+    }
     override func viewWillDisappear(_ animated: Bool) {
         self.notificationCenter.removeObserver(self)
+        
+        view.removeGestureRecognizer(self.tapGestureRecognizer)
+        
+        
+        self.view.endEditing(true)
     }
     
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Tap")
         switch indexPath.row {
-        case 3:
+        case 1:
             let imagePickerVC = UIImagePickerController()
             imagePickerVC.sourceType = .camera
             imagePickerVC.allowsEditing = true
             self.present(imagePickerVC, animated: true, completion: nil)
+        case 2:
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "GraphTableViewController")
+            self.navigationController?.pushViewController(vc, animated: true)
         default:
             return 
         }
@@ -81,5 +100,26 @@ extension MainViewController: UITextFieldDelegate{
         } else {
             return false
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+}
+
+
+extension MainViewController {
+    @objc private func configureKeyboardInteraction() {
+        
+        view.addGestureRecognizer(self.tapGestureRecognizer)
+        
+    }
+    @objc private func removeKeyboardGestureRecognizer() {
+        view.removeGestureRecognizer(self.tapGestureRecognizer)
+        
+    }
+
+    @objc func hideKeyboard(){
+        self.view.endEditing(true)
     }
 }
