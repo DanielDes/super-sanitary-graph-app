@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+
+struct APIResponse : Codable {
+    var stats : StatisticResponse
+    var colors : [String]
+}
+
+
+struct StatisticResponse : Codable {
+    let title : String
+    let percentage : Int
+}
