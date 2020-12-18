@@ -43,3 +43,7 @@ unicamente cuando se tiene certeza que durante su vida util no se va a desinstan
 con un apuntador "inseguro".
 
 
+Punto Extra
+
+Tendrá que ser de color rojo, aunque en un principio se declara el background color amarillo. El color se vuelve a definir en cuanto se ejecuta viewDidLoad, el cual se
+ejecuta unicamente cuando la vista esta por aparecer y eso ocurre despues de que haces que su window sea el principal con "makeKeyandCompliant"
