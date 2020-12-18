@@ -1,0 +1,6 @@
+framework module Pods_SuperSanitaryGraphApp {
+  umbrella header "Pods-SuperSanitaryGraphApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

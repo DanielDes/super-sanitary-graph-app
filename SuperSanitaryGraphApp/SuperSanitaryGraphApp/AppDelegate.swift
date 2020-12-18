@@ -6,18 +6,18 @@
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var firebaseManager : FirebaseManager!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        Networking.fetchData(fromURL: Networking.apiURL!) { (response : APIResponse) in
-            print("Fetched data!")
-            
-        }
+        FirebaseApp.configure()
+        self.firebaseManager = FirebaseManager()
+        
         return true
     }
 
