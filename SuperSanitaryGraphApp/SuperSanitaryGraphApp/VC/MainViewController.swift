@@ -8,11 +8,14 @@
 import UIKit
 
 class MainViewController: UITableViewController {
-    var selfie : UIImage!
-    var user : User!
-    var hideButtonsRow : Bool = true
-    
+    private var selfie : UIImage!
+    private var user : User!
+    private var hideButtonsRow : Bool = true
+    private let notificationCenter = NotificationCenter.default
     @IBOutlet var nameTextfield : UITextField!
+    
+    
+
     
 
     override func viewDidLoad() {
@@ -20,8 +23,12 @@ class MainViewController: UITableViewController {
         user = User(name:"Daniel")
         self.navigationItem.title = "Hola \(user!.name)"
         self.nameTextfield.delegate = self
+        notificationCenter.addObserver(self, selector: #selector(changeColor(sender:)), name: NSNotification.Name("screenColorChanged"), object: nil)
         
         // Do any additional setup after loading the view.
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.notificationCenter.removeObserver(self)
     }
     
     
@@ -45,6 +52,12 @@ class MainViewController: UITableViewController {
     
     @IBAction func seePhoto(sender: UIButton){
         
+    }
+    @objc func changeColor(sender: NSNotification){
+        guard let info = sender.userInfo,
+              let hexColor = info["color"] as? String else {return}
+        let color = UIColor(hex: hexColor)
+        self.view.backgroundColor = color
     }
     
 }

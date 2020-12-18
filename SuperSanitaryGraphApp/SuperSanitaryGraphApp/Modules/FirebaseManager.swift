@@ -11,11 +11,15 @@ import FirebaseDatabase
 
 class FirebaseManager {
     
-    var database : DatabaseReference
+    private var database : DatabaseReference
+    private var notificationCenter : NotificationCenter
     
     
     init(){
         self.database = Database.database().reference()
+        self.notificationCenter = NotificationCenter.default
+        self.listenToValueChange()
+        
         
     }
     
@@ -32,6 +36,15 @@ class FirebaseManager {
             print(error)
         }
         
+    }
+    
+    func listenToValueChange() {
+        database.observe(.value) { [self] (snapshot) in
+            guard let dictionary = snapshot.value as? NSDictionary,
+                  let color = dictionary["screen_color"] as? String else {return}
+            self.notificationCenter.post(name: NSNotification.Name(rawValue: "screenColorChanged"), object: nil, userInfo: ["color":color])
+            print(color)
+        }
     }
     
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B180B1C76A639FF9CBF9474A /* Pods_SuperSanitaryGraphApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825FB30E514DC5B22A4F1375 /* Pods_SuperSanitaryGraphApp.framework */; };
+		C12FC028258C87E300D37106 /* UIColor++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12FC027258C87E300D37106 /* UIColor++.swift */; };
 		C19D9060258C3C600019EA46 /* ChartCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D905F258C3C600019EA46 /* ChartCellTableViewCell.swift */; };
 		C19D9063258C41630019EA46 /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D9062258C41630019EA46 /* UIView++.swift */; };
 		C1D5B628258C176E00668531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5B627258C176E00668531 /* AppDelegate.swift */; };
@@ -22,12 +23,12 @@
 		C1D5B665258C325E00668531 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5B664258C325E00668531 /* FirebaseManager.swift */; };
 		C1D5B66D258C389000668531 /* ChartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5B66C258C389000668531 /* ChartTableViewController.swift */; };
 		C1E4B66E258C4FE1007E70AA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4B66D258C4FE1007E70AA /* User.swift */; };
-		C1E4B671258C5C41007E70AA /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E4B670258C5C41007E70AA /* UserPreferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E775029E6AC44B06A3D3464 /* Pods-SuperSanitaryGraphApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperSanitaryGraphApp.debug.xcconfig"; path = "Target Support Files/Pods-SuperSanitaryGraphApp/Pods-SuperSanitaryGraphApp.debug.xcconfig"; sourceTree = "<group>"; };
 		825FB30E514DC5B22A4F1375 /* Pods_SuperSanitaryGraphApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperSanitaryGraphApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C12FC027258C87E300D37106 /* UIColor++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor++.swift"; path = "Modules/UIColor++.swift"; sourceTree = "<group>"; };
 		C19D905F258C3C600019EA46 /* ChartCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCellTableViewCell.swift; sourceTree = "<group>"; };
 		C19D9062258C41630019EA46 /* UIView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView++.swift"; path = "VC/UIView++.swift"; sourceTree = "<group>"; };
 		C1D5B624258C176E00668531 /* SuperSanitaryGraphApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperSanitaryGraphApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +45,6 @@
 		C1D5B664258C325E00668531 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		C1D5B66C258C389000668531 /* ChartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewController.swift; sourceTree = "<group>"; };
 		C1E4B66D258C4FE1007E70AA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C1E4B670258C5C41007E70AA /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserPreferences.swift; path = SuperSanitaryGraphApp/Models/UserPreferences.swift; sourceTree = SOURCE_ROOT; };
 		DAD9EDA3D476B7F6BB2F77E6 /* Pods-SuperSanitaryGraphApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperSanitaryGraphApp.release.xcconfig"; path = "Target Support Files/Pods-SuperSanitaryGraphApp/Pods-SuperSanitaryGraphApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +98,7 @@
 		C1D5B626258C176E00668531 /* SuperSanitaryGraphApp */ = {
 			isa = PBXGroup;
 			children = (
+				C12FC027258C87E300D37106 /* UIColor++.swift */,
 				C19D9062258C41630019EA46 /* UIView++.swift */,
 				C1D5B627258C176E00668531 /* AppDelegate.swift */,
 				C1D5B629258C176E00668531 /* SceneDelegate.swift */,
@@ -127,7 +128,6 @@
 			children = (
 				C1D5B65C258C2B5F00668531 /* Networking.swift */,
 				C1D5B664258C325E00668531 /* FirebaseManager.swift */,
-				C1E4B670258C5C41007E70AA /* UserPreferences.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -265,9 +265,9 @@
 				C19D9060258C3C600019EA46 /* ChartCellTableViewCell.swift in Sources */,
 				C1D5B62C258C176E00668531 /* MainViewController.swift in Sources */,
 				C1D5B628258C176E00668531 /* AppDelegate.swift in Sources */,
+				C12FC028258C87E300D37106 /* UIColor++.swift in Sources */,
 				C1E4B66E258C4FE1007E70AA /* User.swift in Sources */,
 				C1D5B62A258C176E00668531 /* SceneDelegate.swift in Sources */,
-				C1E4B671258C5C41007E70AA /* UserPreferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
