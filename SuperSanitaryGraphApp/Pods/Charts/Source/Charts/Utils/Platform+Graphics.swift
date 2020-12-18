@@ -53,14 +53,14 @@ func NSUIGraphicsEndImageContext()
     UIGraphicsEndImageContext()
 }
 
-func NSUIImagePNGRepresentation(_ image: NSUIImage) -> Data?
+func NSUIImagePNGRepresentation(_ imageView: NSUIImage) -> Data?
 {
-    return image.pngData()
+    return imageView.pngData()
 }
 
-func NSUIImageJPEGRepresentation(_ image: NSUIImage, _ quality: CGFloat = 0.8) -> Data?
+func NSUIImageJPEGRepresentation(_ imageView: NSUIImage, _ quality: CGFloat = 0.8) -> Data?
 {
-    return image.jpegData(compressionQuality: quality)
+    return imageView.jpegData(compressionQuality: quality)
 }
 
 func NSUIGraphicsBeginImageContextWithOptions(_ size: CGSize, _ opaque: Bool, _ scale: CGFloat)
@@ -90,19 +90,19 @@ func NSUIGraphicsPopContext()
     NSGraphicsContext.restoreGraphicsState()
 }
 
-func NSUIImagePNGRepresentation(_ image: NSUIImage) -> Data?
+func NSUIImagePNGRepresentation(_ imageView: NSUIImage) -> Data?
 {
-    image.lockFocus()
-    let rep = NSBitmapImageRep(focusedViewRect: NSMakeRect(0, 0, image.size.width, image.size.height))
-    image.unlockFocus()
+    imageView.lockFocus()
+    let rep = NSBitmapImageRep(focusedViewRect: NSMakeRect(0, 0, imageView.size.width, imageView.size.height))
+    imageView.unlockFocus()
     return rep?.representation(using: .png, properties: [:])
 }
 
-func NSUIImageJPEGRepresentation(_ image: NSUIImage, _ quality: CGFloat = 0.9) -> Data?
+func NSUIImageJPEGRepresentation(_ imageView: NSUIImage, _ quality: CGFloat = 0.9) -> Data?
 {
-    image.lockFocus()
-    let rep = NSBitmapImageRep(focusedViewRect: NSMakeRect(0, 0, image.size.width, image.size.height))
-    image.unlockFocus()
+    imageView.lockFocus()
+    let rep = NSBitmapImageRep(focusedViewRect: NSMakeRect(0, 0, imageView.size.width, imageView.size.height))
+    imageView.unlockFocus()
     return rep?.representation(using: .jpeg, properties: [NSBitmapImageRep.PropertyKey.compressionFactor: quality])
 }
 
@@ -145,8 +145,8 @@ func NSUIGraphicsGetImageFromCurrentImageContext() -> NSUIImage?
         if let theCGImage = ctx.makeImage()
         {
             let size = CGSize(width: CGFloat(ctx.width) / scale, height: CGFloat(ctx.height) / scale)
-            let image = NSImage(cgImage: theCGImage, size: size)
-            return image
+            let imageView = NSImage(cgImage: theCGImage, size: size)
+            return imageView
         }
     }
     return nil
