@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		C1D5B631258C177000668531 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1D5B630258C177000668531 /* Assets.xcassets */; };
 		C1D5B634258C177000668531 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D5B632258C177000668531 /* LaunchScreen.storyboard */; };
 		C1D5B63D258C254C00668531 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1D5B63C258C254C00668531 /* GoogleService-Info.plist */; };
+		C1D5B657258C2AD400668531 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5B656258C2AD400668531 /* Response.swift */; };
+		C1D5B65D258C2B5F00668531 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5B65C258C2B5F00668531 /* Networking.swift */; };
+		C1D5B665258C325E00668531 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5B664258C325E00668531 /* FirebaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		C1D5B633258C177000668531 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1D5B635258C177000668531 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1D5B63C258C254C00668531 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C1D5B656258C2AD400668531 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		C1D5B65C258C2B5F00668531 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		C1D5B664258C325E00668531 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		DAD9EDA3D476B7F6BB2F77E6 /* Pods-SuperSanitaryGraphApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperSanitaryGraphApp.release.xcconfig"; path = "Target Support Files/Pods-SuperSanitaryGraphApp/Pods-SuperSanitaryGraphApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +64,6 @@
 				1E775029E6AC44B06A3D3464 /* Pods-SuperSanitaryGraphApp.debug.xcconfig */,
 				DAD9EDA3D476B7F6BB2F77E6 /* Pods-SuperSanitaryGraphApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,7 +90,9 @@
 			children = (
 				C1D5B627258C176E00668531 /* AppDelegate.swift */,
 				C1D5B629258C176E00668531 /* SceneDelegate.swift */,
-				C1D5B62B258C176E00668531 /* ViewController.swift */,
+				C1D5B662258C323700668531 /* VC */,
+				C1D5B65F258C320600668531 /* Models */,
+				C1D5B660258C322800668531 /* Modules */,
 				C1D5B62D258C176E00668531 /* Main.storyboard */,
 				C1D5B630258C177000668531 /* Assets.xcassets */,
 				C1D5B632258C177000668531 /* LaunchScreen.storyboard */,
@@ -93,6 +100,31 @@
 				C1D5B635258C177000668531 /* Info.plist */,
 			);
 			path = SuperSanitaryGraphApp;
+			sourceTree = "<group>";
+		};
+		C1D5B65F258C320600668531 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C1D5B656258C2AD400668531 /* Response.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C1D5B660258C322800668531 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C1D5B65C258C2B5F00668531 /* Networking.swift */,
+				C1D5B664258C325E00668531 /* FirebaseManager.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		C1D5B662258C323700668531 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				C1D5B62B258C176E00668531 /* ViewController.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +242,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D5B665258C325E00668531 /* FirebaseManager.swift in Sources */,
+				C1D5B657258C2AD400668531 /* Response.swift in Sources */,
+				C1D5B65D258C2B5F00668531 /* Networking.swift in Sources */,
 				C1D5B62C258C176E00668531 /* ViewController.swift in Sources */,
 				C1D5B628258C176E00668531 /* AppDelegate.swift in Sources */,
 				C1D5B62A258C176E00668531 /* SceneDelegate.swift in Sources */,
