@@ -6,19 +6,23 @@
 //
 
 import UIKit
-
+import Charts
 class ChartTableViewController: UITableViewController {
-    var response : APIResponse?
+    var dataSets : [PieChartDataSet]?
+    var questions : [Questions]?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(ChartCellTableViewCell.self, forCellReuseIdentifier: "ChartCell")
+//        self.tableView.register(ChartCellTableViewCell.self, forCellReuseIdentifier: "ChartCell")
+        self.tableView.register(UINib.init(nibName: "ChartTableViewCell", bundle: nil), forCellReuseIdentifier: "ChartCell")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         Networking.fetchData(fromURL: Networking.apiURL!) { (response: APIResponse) in
-            self.response = response
+            self.questions = response.questions
+            self.dataSets = response.createDataSets()
             print("Done")
             self.tableView.reloadData()
         }
@@ -32,69 +36,29 @@ class ChartTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let response = response else {return 0}
-        return response.questions.count
+        guard let response = dataSets else {return 0}
+        return response.count
     }
     
     
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChartCell", for: indexPath) as? ChartCellTableViewCell,
-              let response = self.response else {return UITableViewCell()}
-        cell.configureCell(question: response.questions[indexPath.row])
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChartCell", for: indexPath) as? ChartTableViewCell,
+              let dataSets = self.dataSets,
+              let question = self.questions else {return UITableViewCell()}
+        let dataSet = dataSets[indexPath.row]
+        let title = question[indexPath.row].text
+        cell.configureChart(dataSet: dataSet,title: title)
         
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 400
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

@@ -108,8 +108,8 @@ public struct DataResponsePublisher<Value>: Publisher {
             guard let downstream = downstream else { return }
 
             self.downstream = nil
-            responseHandler { response in
-                _ = downstream.receive(response)
+            responseHandler { dataSets in
+                _ = downstream.receive(dataSets)
                 downstream.receive(completion: .finished)
             }.resume()
         }
@@ -462,8 +462,8 @@ public struct DownloadResponsePublisher<Value>: Publisher {
             guard let downstream = downstream else { return }
 
             self.downstream = nil
-            responseHandler { response in
-                _ = downstream.receive(response)
+            responseHandler { dataSets in
+                _ = downstream.receive(dataSets)
                 downstream.receive(completion: .finished)
             }.resume()
         }

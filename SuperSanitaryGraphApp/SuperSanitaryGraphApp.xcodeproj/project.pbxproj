@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		B180B1C76A639FF9CBF9474A /* Pods_SuperSanitaryGraphApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825FB30E514DC5B22A4F1375 /* Pods_SuperSanitaryGraphApp.framework */; };
 		C12FC028258C87E300D37106 /* UIColor++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12FC027258C87E300D37106 /* UIColor++.swift */; };
-		C19D9060258C3C600019EA46 /* ChartCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D905F258C3C600019EA46 /* ChartCellTableViewCell.swift */; };
+		C15E1F28258D1E10004678F2 /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E1F26258D1E10004678F2 /* ChartTableViewCell.swift */; };
+		C15E1F29258D1E10004678F2 /* ChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C15E1F27258D1E10004678F2 /* ChartTableViewCell.xib */; };
 		C19D9063258C41630019EA46 /* UIView++.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19D9062258C41630019EA46 /* UIView++.swift */; };
 		C1D5B628258C176E00668531 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5B627258C176E00668531 /* AppDelegate.swift */; };
 		C1D5B62A258C176E00668531 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5B629258C176E00668531 /* SceneDelegate.swift */; };
@@ -29,7 +30,8 @@
 		1E775029E6AC44B06A3D3464 /* Pods-SuperSanitaryGraphApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperSanitaryGraphApp.debug.xcconfig"; path = "Target Support Files/Pods-SuperSanitaryGraphApp/Pods-SuperSanitaryGraphApp.debug.xcconfig"; sourceTree = "<group>"; };
 		825FB30E514DC5B22A4F1375 /* Pods_SuperSanitaryGraphApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperSanitaryGraphApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C12FC027258C87E300D37106 /* UIColor++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor++.swift"; path = "Modules/UIColor++.swift"; sourceTree = "<group>"; };
-		C19D905F258C3C600019EA46 /* ChartCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCellTableViewCell.swift; sourceTree = "<group>"; };
+		C15E1F26258D1E10004678F2 /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
+		C15E1F27258D1E10004678F2 /* ChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartTableViewCell.xib; sourceTree = "<group>"; };
 		C19D9062258C41630019EA46 /* UIView++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView++.swift"; path = "VC/UIView++.swift"; sourceTree = "<group>"; };
 		C1D5B624258C176E00668531 /* SuperSanitaryGraphApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperSanitaryGraphApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D5B627258C176E00668531 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,7 +139,8 @@
 			children = (
 				C1D5B62B258C176E00668531 /* MainViewController.swift */,
 				C1D5B66C258C389000668531 /* ChartTableViewController.swift */,
-				C19D905F258C3C600019EA46 /* ChartCellTableViewCell.swift */,
+				C15E1F26258D1E10004678F2 /* ChartTableViewCell.swift */,
+				C15E1F27258D1E10004678F2 /* ChartTableViewCell.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				C1D5B63D258C254C00668531 /* GoogleService-Info.plist in Resources */,
 				C1D5B631258C177000668531 /* Assets.xcassets in Resources */,
 				C1D5B62F258C176E00668531 /* Main.storyboard in Resources */,
+				C15E1F29258D1E10004678F2 /* ChartTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,8 +265,8 @@
 				C1D5B657258C2AD400668531 /* Response.swift in Sources */,
 				C19D9063258C41630019EA46 /* UIView++.swift in Sources */,
 				C1D5B66D258C389000668531 /* ChartTableViewController.swift in Sources */,
+				C15E1F28258D1E10004678F2 /* ChartTableViewCell.swift in Sources */,
 				C1D5B65D258C2B5F00668531 /* Networking.swift in Sources */,
-				C19D9060258C3C600019EA46 /* ChartCellTableViewCell.swift in Sources */,
 				C1D5B62C258C176E00668531 /* MainViewController.swift in Sources */,
 				C1D5B628258C176E00668531 /* AppDelegate.swift in Sources */,
 				C12FC028258C87E300D37106 /* UIColor++.swift in Sources */,
